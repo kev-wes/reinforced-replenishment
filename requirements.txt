@@ -25,3 +25,4 @@ adlfs~=2024.7.0
 redis~=5.1.1
 azure-containerregistry~=1.2.0
 dotenv~=0.9.9
+gym
