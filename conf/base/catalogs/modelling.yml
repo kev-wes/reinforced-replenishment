@@ -1,0 +1,13 @@
+"{namespace}.{dataset_name}@json":
+  type: json.JSONDataset
+  filepath: "data/06_models/{namespace}_{dataset_name}.json"
+  versioned: true
+
+"{namespace}.{dataset_name}@postgresql":
+  type: reinforced_replenishment.extras.datasets.custom_datasets.CustomSQLTableDataset
+  credentials: db_credentials
+  table_name: "{namespace}_{dataset_name}"
+  save_args:
+    if_exists: append
+    chunksize: 100000
+    method: bulk

@@ -1,0 +1,29 @@
+name: pre-commit & test
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    - uses: pre-commit/action@v3.0.1
+      with:
+        extra_args: --from-ref HEAD~ --to-ref HEAD
+  test:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: pytest

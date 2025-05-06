@@ -1,0 +1,27 @@
+ipython>=8.10
+jupyterlab>=3.0
+kedro~=0.19.6
+kedro-datasets~=3.0.1
+kedro-telemetry>=0.3.1
+notebook
+pytest~=7.2
+pytest-cov~=6.0
+pytest-mock>=1.7.1, <2.0
+ruff~=0.5.3
+psycopg2~=2.9.9
+openpyxl~=3.1.4
+pre-commit~=3.7.1
+sqlalchemy~=2.0.31
+tqdm~=4.66.4
+nbstripout~=0.7.1
+scipy~=1.14.0
+pmdarima~=2.0.4
+spec_metric @ git+https://github.com/DominikMartin/spec_metric.git
+mlflow~=2.14.2
+azure_storage_blob~=12.20.0
+azure-identity~=1.17.1
+plotly~=5.22.0
+adlfs~=2024.7.0
+redis~=5.1.1
+azure-containerregistry~=1.2.0
+dotenv~=0.9.9

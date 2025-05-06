@@ -1,0 +1,71 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Kedro Jupyter Notebook",
+            "type": "python",
+            "request": "launch",
+            "module": "kedro",
+            "args":[
+                "jupyter", "notebook"
+            ],
+            "justMyCode": true, 
+            "envFile": "${workspaceFolder}/conf/local/.env"
+        },
+        {
+            "name": "Python: Kedro run -p data_processing",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "kedro",
+            "args": [
+                "run", 
+                 "--pipeline", "data_processing"
+                ],
+            "justMyCode": true,
+            "envFile": "${workspaceFolder}/conf/local/.env"
+        },
+        {
+            "name": "Python: Kedro run -p modelling execute demo fc pipeline",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "kedro",
+            "args": [
+                "run", 
+                "--pipeline", "modelling", 
+                "--namespace", "demo"
+            ],
+            "justMyCode": true,
+            "envFile": "${workspaceFolder}/conf/local/.env"
+        },
+        {
+            "name": "Python: Kedro run -p modelling Get demo fc results",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "kedro",
+            "args": [
+                "run", 
+                "--pipeline", "modelling",  
+                "--from-nodes", "demo.get_forecast_results_node"
+            ],
+            "justMyCode": true,
+            "envFile": "${workspaceFolder}/conf/local/.env"
+        },
+        {
+            "name": "Python: Kedro run -p modelling --load-versions YYYY-MM-DDThh.mm.ss.sssZ Get demo fc results",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "kedro",
+            "args": [
+                "run", 
+                "--pipeline", "modelling", 
+                "--from-nodes", "demo.get_forecast_results_node", 
+                "--load-versions", "demo.forecast_key@json:YYYY-MM-DDThh.mm.ss.sssZ,demo.forecast_run_config@json:2YYYY-MM-DDThh.mm.ss.sssZ"
+                    ],
+            "justMyCode": true,
+            "envFile": "${workspaceFolder}/conf/local/.env"
+        },
+    ]
+}

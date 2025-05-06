@@ -1,0 +1,57 @@
+demo.forecast_api_config:
+  validate: true
+
+demo.max_date: &max_date "2022-12-31"
+
+demo.forecast_config_1: &forecast_config
+  data_source:
+    source_type: postgres-table
+    source: demo-demand-forecast
+    table_name: ${latest:demo_forecast_table}
+  target: value
+  date_column: date
+  group_columns:
+    - sku_id
+    - product
+    - city
+    - federal_state
+  resolution: daily
+  horizon: 12
+  lower_forecast_limit: 0
+  max_date: *max_date
+  n_benchmarks: 1
+  seed: 42
+  disregard_missing_start_by_group: true
+  pipeline:
+    name: DefaultExplainingPredictionModel # Default Global model
+  #   kwargs:
+  #     scaler: "min-max"
+
+demo.forecast_config:
+  - <<: *forecast_config
+
+demo.forecast_result_config:
+  # disable_status_validation: False
+  # group_columns:
+  # - federal_state
+  # result_aggregation:
+  #   resolution: monthly
+  #   incomplete_periods: false
+  #   per_benchmark: false
+
+demo.evaluation_config:
+  - metric: wape
+    agg_func: weighted_mean
+  - metric: wape
+    agg_func: weighted_mean
+    pre_aggregation_groups: []
+  - metric: wape
+    agg_func: weighted_mean
+    pre_aggregation_groups:
+      - city
+  - metric: maape
+    agg_func: weighted_mean
+  - metric: rmse
+    agg_func: mean
+  - metric: mae
+    agg_func: mean

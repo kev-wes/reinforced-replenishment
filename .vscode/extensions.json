@@ -1,0 +1,3 @@
+{
+  "recommendations": ["redhat.vscode-yaml", "charliermarsh.ruff", "ms-python.python", "donjayamanne.python-environment-manager", "ms-python.vscode-pylance", "magicstack.MagicPython", "VisualStudioExptTeam.vscodeintellicode", "VisualStudioExptTeam.intellicode-api-usage-examples", "codezombiech.gitignore", "njpwerner.autodocstring"]
+}
