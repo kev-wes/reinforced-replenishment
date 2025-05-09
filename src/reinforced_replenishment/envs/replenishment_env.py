@@ -88,6 +88,7 @@ class ReplenishmentEnv(gym.Env):
         return self.state, {}
 
     def render(self, mode="human"):
+        """Render the environment's state as a plot."""
         logger.info(f"Inventory: {self.inventory}, Forecast: {self.forecast}")
 
     def close(self):
