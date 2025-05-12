@@ -29,3 +29,4 @@ dotenv~=0.9.9
 gymnasium
 stable_baselines3
 shimmy
+ipywidgets # to show RL progress bar
